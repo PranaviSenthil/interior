@@ -10,16 +10,17 @@ export default function Hero() {
     <div className="relative h-screen w-full overflow-hidden flex items-center justify-center">
       {/* Background Video/Image Placeholder */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-charcoal/90 mix-blend-multiply z-10" />
+        <div className="absolute inset-0 bg-black/70 z-10" />
         <img 
           src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
           alt="Luxury Interior" 
           className="w-full h-full object-cover"
         />
-        <Hero3D />
-      </div>
+        </div>
+      
+      <Hero3D />
 
-      <div className="container mx-auto px-6 md:px-12 relative z-20 text-warm-white pointer-events-none">
+      <div className="container mx-auto px-6 md:px-12 relative z-30 text-warm-white pointer-events-none">
         <div className="max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -69,7 +70,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-30"
       >
         <span className="text-warm-white/60 text-xs tracking-widest uppercase">Scroll</span>
         <motion.div 
