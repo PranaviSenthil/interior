@@ -32,7 +32,7 @@ export default function Hero() {
             </h2>
           </motion.div>
           
-          <h1 className="text-6xl md:text-8xl font-serif font-medium leading-tight mb-8">
+          <h1 className="text-4xl md:text-6xl font-serif font-medium leading-tight mb-8">
             <RevealText text="Design That Speaks" delay={0.4} /> <br className="hidden md:block" />
             <RevealText text="Volumes." delay={0.6} className="italic font-light" />
           </h1>
