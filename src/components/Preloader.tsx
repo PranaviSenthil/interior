@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState, useRef, useMemo } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Sphere, Float, Points, PointMaterial, Text } from '@react-three/drei';
+import { Sphere, Float, Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
 
 // Custom shader for golden glowing wireframe effect
@@ -122,34 +122,7 @@ function SparkleParticles() {
   );
 }
 
-function BrandText() {
-  return (
-    <group>
-      <Text
-        font="/fonts/playfair-display-v30-latin-regular.woff"
-        fontSize={0.5}
-        color="#FFFFFF"
-        anchorX="center"
-        anchorY="middle"
-        position={[0, 0.15, 0]}
-        letterSpacing={0.15}
-      >
-        YOUR
-      </Text>
-      <Text
-        font="/fonts/playfair-display-v30-latin-italic.woff"
-        fontSize={0.5}
-        color="#D4AF37"
-        anchorX="center"
-        anchorY="middle"
-        position={[0, -0.45, 0]}
-        letterSpacing={0.15}
-      >
-        BRAND
-      </Text>
-    </group>
-  );
-}
+
 
 function AnimatedBubble() {
   const groupRef = useRef<THREE.Group>(null);
@@ -167,7 +140,6 @@ function AnimatedBubble() {
           <GoldenBubbleMaterial />
         </Sphere>
         <SparkleParticles />
-        <BrandText />
       </group>
     </Float>
   );
@@ -203,12 +175,13 @@ export default function Preloader() {
 
   return (
     <motion.div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black pointer-events-none"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black"
+      style={{ pointerEvents: loading ? 'auto' : 'none' }}
       initial={{ opacity: 1 }}
       animate={{ opacity: loading ? 1 : 0, y: loading ? 0 : '-100%' }}
       transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
     >
-      {/* 3D Bubble with Brand */}
+      {/* 3D Bubble */}
       <div className="absolute inset-0 z-10">
         <Canvas camera={{ position: [0, 0, 7], fov: 45 }} gl={{ alpha: true, antialias: true }}>
           <ambientLight intensity={0.2} />
@@ -218,6 +191,21 @@ export default function Preloader() {
           <AnimatedBubble />
         </Canvas>
       </div>
+      
+      {/* Brand Text Overlay */}
+      <motion.div 
+        className="absolute inset-0 flex items-center justify-center z-20"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+      >
+        <div className="text-center">
+          <h1 className="text-5xl md:text-7xl font-serif tracking-[0.2em]">
+            <span className="text-warm-white">YOUR</span>
+            <span className="text-champagne italic ml-2">BRAND</span>
+          </h1>
+        </div>
+      </motion.div>
       
       {/* Loading Progress Bar */}
       <div className="absolute bottom-12 left-1/2 -translate-x-1/2 w-64 h-[2px] bg-warm-white/10 overflow-hidden z-20">
