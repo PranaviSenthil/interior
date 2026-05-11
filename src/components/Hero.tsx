@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import Hero3D from './Hero3D';
+
 import MagneticButton from './MagneticButton';
 import RevealText from './RevealText';
 
@@ -18,7 +18,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-black/60" />
       </div>
       
-      <Hero3D />
+      
 
       <div className="container mx-auto px-6 md:px-12 relative z-30 text-warm-white pointer-events-none">
         <div className="max-w-4xl">

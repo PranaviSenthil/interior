@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-12">
         <div className="col-span-1 md:col-span-2">
           <Link to="/" className="text-3xl font-serif font-bold tracking-tighter mb-6 block">
-            ANTI<span className="text-champagne italic">INTERIOR</span>
+            YOUR<span className="text-champagne italic">BRAND</span>
           </Link>
           <p className="text-warm-white/70 max-w-md mb-8">
             Elevating spaces through sophisticated design. We specialize in ultra-premium residential and commercial interiors that blend timeless elegance with modern functionality.
@@ -45,14 +45,14 @@ export default function Footer() {
             </li>
             <li className="flex items-center gap-3">
               <Mail size={20} className="text-champagne shrink-0" />
-              <span>hello@anti-interior.com</span>
+              <span>hello@yourbrand.com</span>
             </li>
           </ul>
         </div>
       </div>
       
       <div className="container mx-auto px-6 md:px-12 mt-16 pt-8 border-t border-warm-white/10 text-center text-sm text-warm-white/50">
-        <p>&copy; {new Date().getFullYear()} Anti-Interior Design. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Your Brand. All rights reserved.</p>
       </div>
     </footer>
   );

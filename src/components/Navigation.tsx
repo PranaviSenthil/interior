@@ -31,7 +31,7 @@ export default function Navigation() {
         
         {/* Logo */}
         <Link to="/" className="text-2xl font-serif font-bold tracking-tighter z-[60] relative">
-          ANTI<span className="text-champagne italic">INT</span>
+          YOUR<span className="text-champagne italic">BRAND</span>
         </Link>
 
         {/* Center Links (Visible only on desktop when menu is open) */}
@@ -112,8 +112,8 @@ export default function Navigation() {
                       transition={{ delay: 0.8, duration: 0.5 }}
                     >
                       <span className="text-champagne tracking-[0.25em] uppercase text-[10px] font-medium mb-8 block">Contact Us</span>
-                      <a href="mailto:hello@anti-interior.com" className="text-3xl md:text-4xl font-serif text-warm-white hover:text-champagne transition-colors block mb-3">
-                        hello@anti-interior.com
+                      <a href="mailto:hello@yourbrand.com" className="text-3xl md:text-4xl font-serif text-warm-white hover:text-champagne transition-colors block mb-3">
+                        hello@yourbrand.com
                       </a>
                       <p className="text-warm-white/60 text-sm mb-12 font-sans tracking-wider">
                         +1 (555) 123-4567
@@ -143,7 +143,7 @@ export default function Navigation() {
                     <span>Designing spaces. Elevating lives.</span>
                   </div>
                   <div>
-                    &copy; 2023 Anti-Interior. All rights reserved.
+                    &copy; 2024 Your Brand. All rights reserved.
                   </div>
                 </div>
 
