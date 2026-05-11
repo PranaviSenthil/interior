@@ -21,10 +21,12 @@ function AnimatedSphere() {
           attach="material"
           distort={0.4}
           speed={2}
-          roughness={0.1}
-          metalness={0.9}
+          roughness={0.05}
+          metalness={0.95}
           clearcoat={1}
-          clearcoatRoughness={0.1}
+          clearcoatRoughness={0.05}
+          transparent
+          opacity={0.6}
         />
       </Sphere>
     </Float>
@@ -63,7 +65,7 @@ function Rig() {
 
 export default function Hero3D() {
   return (
-    <div className="absolute inset-0 z-0 opacity-70 mix-blend-screen">
+    <div className="absolute inset-0 z-0 opacity-80 mix-blend-screen">
       <Canvas camera={{ position: [0, 0, 6], fov: 45 }}>
         <ambientLight intensity={0.2} />
         <directionalLight position={[-10, -10, -5]} intensity={0.5} color="#D4AF37" />

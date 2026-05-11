@@ -10,7 +10,7 @@ export default function Hero() {
     <div className="relative h-screen w-full overflow-hidden flex items-center justify-center">
       {/* Background Video/Image Placeholder */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-charcoal/80 mix-blend-multiply z-10" />
+        <div className="absolute inset-0 bg-charcoal/90 mix-blend-multiply z-10" />
         <img 
           src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
           alt="Luxury Interior" 
