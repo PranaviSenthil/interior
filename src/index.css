@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --color-charcoal: #1A1A1A;
+  --color-warm-white: #FDFBF7;
+  --color-champagne: #D4AF37;
+  
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Playfair Display", serif;
+}
+
+@layer base {
+  body {
+    @apply bg-warm-white text-charcoal antialiased selection:bg-champagne selection:text-white;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+  }
+}
