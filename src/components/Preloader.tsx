@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState, useRef, useMemo } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Sphere, Float, Points, PointMaterial } from '@react-three/drei';
@@ -167,20 +167,32 @@ export default function Preloader() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Check if preloader has already been shown in this session
+    const hasSeenPreloader = sessionStorage.getItem('hasSeenPreloader');
+    
+    if (hasSeenPreloader) {
+      // Skip preloader if already shown in this session
+      setLoading(false);
+      return;
+    }
+
     const timer = setTimeout(() => {
       setLoading(false);
+      sessionStorage.setItem('hasSeenPreloader', 'true');
     }, 3500);
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <motion.div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black"
-      style={{ pointerEvents: loading ? 'auto' : 'none' }}
-      initial={{ opacity: 1 }}
-      animate={{ opacity: loading ? 1 : 0, y: loading ? 0 : '-100%' }}
-      transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
-    >
+    <AnimatePresence>
+      {loading && (
+        <motion.div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0, y: '-100%' }}
+          transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
+        >
       {/* 3D Bubble */}
       <div className="absolute inset-0 z-10">
         <Canvas camera={{ position: [0, 0, 7], fov: 45 }} gl={{ alpha: true, antialias: true }}>
@@ -217,5 +229,7 @@ export default function Preloader() {
         />
       </div>
     </motion.div>
+      )}
+    </AnimatePresence>
   );
 }
